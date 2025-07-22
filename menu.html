@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Menu | FoodieHub | By Akash Reddy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/Screenshot 2025-04-23 144405.png">
+  <style>
+     @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: "Poppins", sans-serif;
+      background: url('https://images.pexels.com/photos/22306724/pexels-photo-22306724/free-photo-of-colorful-donuts-burger-on-pastel-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+      color: #333;
+      padding-top: 40px;
+      
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      position: relative;
+      display: inline-block;
+      color: #fff;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background-color: #ff7f50;
+      transition: width 0.5s ease;
+    }
+
+    .section-title.animate::after {
+      width: 60%;
+    }
+
+    .top-nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .top-nav a {
+      color: #fff;
+      text-decoration: none;
+      background-color: #ff7f50;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav a:hover {
+        background-color: #ff7f50;
+      color: #333;
+    }
+
+    .filter-buttons {
+      text-align: center;
+      margin: 30px 0;
+      
+      
+    }
+
+    .filter-buttons button {
+        background-color: #ff7f50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 1.1rem;
+      
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-buttons button:hover {
+      background-color: #ff7f50;
+      color: #333;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .menu-item {
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-item h4 {
+      margin: 10px 0;
+      font-size: 1.3rem;
+    }
+
+    .menu-item p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .menu-item span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #e67e22;
+    }
+    .menu-item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+
+    .tags {
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+
+    .tags span {
+      margin: 0 4px;
+    }
+
+    #menuModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    #menuModal .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+
+    #menuModal .modal-content span.close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 500px) {
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    /* Footer Section */
+.footer {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe') no-repeat center center/cover;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+    width: 30%;
+}
+
+.footer-left h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.footer-left p {
+    font-size: 1rem;
+    color: #bbb;
+}
+
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #ffce63;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 3px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #ffce63;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #ffce63;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+/* 🌓 Toggle Style */
+.theme-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+/* 🌞 Light Theme (default) */
+body.light-mode {
+  background-color: #fff;
+  color: #111;
+}
+body.light-mode .navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #111;
+}
+body.light-mode .nav-links li a {
+  color: #111;
+}
+body.light-mode .nav-links li a::after {
+  background: #f39c12;
+}
+body.light-mode .hamburger span {
+  background: #111;
+}
+
+/* 🌚 Dark Theme */
+body.dark-mode {
+  background-color: #111;
+  color: #fff;
+}
+body.dark-mode .navbar {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+body.dark-mode .nav-links li a {
+  color: #fff;
+}
+body.dark-mode .nav-links li a::after {
+  background: #f39c12;
+}
+body.dark-mode .hamburger span {
+  background: #fff;
+}
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin: 20px 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="top-nav">
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+  <header>
+    <h2 class="section-title">Our Menu</h2>
+  </header>
+
+  <div class="filter-buttons">
+    <button onclick="filterMenu('all')">All</button>
+    <button onclick="filterMenu('starters')">Starters</button>
+    <button onclick="filterMenu('mains')">Mains</button>
+    <button onclick="filterMenu('desserts')">Desserts</button>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-item starters" onclick="showModal('Garlic Bread', 'Toasted baguette with garlic butter and herbs.', '₹120')">
+        <img src="https://images.unsplash.com/photo-1593527270723-834c53a3fed4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="garlic bread" />
+      <h4>Garlic Bread</h4>
+      <p>Toasted baguette with garlic butter and herbs.</p>
+      <div class="tags"><span style="color:green;">🟢 Veg</span></div>
+      <span>₹120</span>
+    </div>
+
+    <div class="menu-item mains" onclick="showModal('Grilled Chicken', 'Juicy grilled chicken with roasted veggies and sauce.', '₹320')">
+        <img src="https://images.unsplash.com/photo-1643594462181-7667928d072e?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="grilled chicken" />
+      <h4>Grilled Chicken</h4>
+      <p>Juicy grilled chicken with roasted veggies and sauce.</p>
+      <div class="tags"><span style="color:red;">🌶️ Spicy</span></div>
+      <span>₹320</span>
+    </div>
+
+    <div class="menu-item desserts" onclick="showModal('Chocolate Lava Cake', 'Warm chocolate cake with gooey center.', '₹180')">
+        <img src="https://plus.unsplash.com/premium_photo-1723618822165-0b13c0471fc4?q=80&w=1416&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="chocolate lava cake" />
+      <h4>Chocolate Lava Cake</h4>
+      <p>Warm chocolate cake with gooey center.</p>
+      <div class="tags"><span style="color:green;">🟢 Veg</span></div>
+      <span>₹180</span>
+   
+
+  
+  </div>
+  <!-- NEW MENU ITEMS START -->
+
+<div class="menu-item starters" onclick="showModal('Tandoori Paneer Tikka', 'Cubes of paneer marinated in spices and grilled.', '₹220')">
+    <img src="https://media.istockphoto.com/id/1460837076/photo/fry-pepper-paneer.jpg?s=1024x1024&w=is&k=20&c=8959CqYFMuarjQXo85uY4usfYV9YuZZoasrUcbN7hdM=" alt="tandoori paneer tikka" />
+    <h4>Tandoori Paneer Tikka</h4>
+    <p>Cubes of paneer marinated in spices and grilled.</p>
+    <div class="tags"><span style="color:green;">🟢 Veg</span> <span style="color:red;">🌶️ Spicy</span></div>
+    <span>₹220</span>
+  </div>
+  
+  <div class="menu-item mains" onclick="showModal('Butter Chicken', 'Creamy tomato-based curry with tender chicken.', '₹350')">
+    <img src="https://images.unsplash.com/photo-1705174427925-744646e72117?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="butter chicken" />
+    <h4>Butter Chicken</h4>
+    <p>Creamy tomato-based curry with tender chicken.</p>
+    <div class="tags"><span style="color:red;">🌶️ Spicy</span></div>
+    <span>₹350</span>
+  </div>
+  
+  <div class="menu-item mains" onclick="showModal('Veg Biryani', 'Fragrant basmati rice cooked with veggies & spices.', '₹240')">
+    <img src="https://images.unsplash.com/photo-1684409642850-b48e5ab8e67c?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="veg biryani" />
+    <h4>Veg Biryani</h4>
+    <p>Fragrant basmati rice cooked with veggies & spices.</p>
+    <div class="tags"><span style="color:green;">🟢 Veg</span></div>
+    <span>₹240</span>
+  </div>
+  
+  <div class="menu-item desserts" onclick="showModal('Gulab Jamun', 'Soft milk-based dumplings soaked in sugar syrup.', '₹100')">
+    <img src="https://media.istockphoto.com/id/1188000786/photo/gulab-jamun-in-bowl-on-wooden-background-indian-dessert-or-sweet-dish.jpg?s=1024x1024&w=is&k=20&c=p92iX5UnAJgkFWt4jp8S-fRiNkBWnooA-eEUqdDNG2E=" alt="gulab jamun" />
+    <h4>Gulab Jamun</h4>
+    <p>Soft milk-based dumplings soaked in sugar syrup.</p>
+    <div class="tags"><span style="color:green;">🟢 Veg</span></div>
+    <span>₹100</span>
+  </div>
+  
+  <div class="menu-item starters" onclick="showModal('Chicken Lollipop', 'Crispy chicken wings coated with spicy sauce.', '₹180')">
+    <img src="https://media.istockphoto.com/id/1297553194/photo/chicken-lollipop-spicy-mala-sichuan-pepper-flavor-suace-chinese-style.jpg?s=1024x1024&w=is&k=20&c=UNSoCUBWOPZGzdKpbk2oIVLYuAoRurO95o8YRdFwYnQ=" alt="chicken lollipo" />
+    <h4>Chicken Lollipop</h4>
+    <p>Crispy chicken wings coated with spicy sauce.</p>
+    <div class="tags"><span style="color:red;">🌶️ Spicy</span></div>
+    <span>₹180</span>
+  </div>
+  
+  <div class="menu-item desserts" onclick="showModal('Ice Cream Sundae', 'Vanilla & chocolate ice cream with toppings.', '₹160')">
+    <img src="https://images.unsplash.com/photo-1718985344972-d0eaf1ba5d72?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWNlJTIwY3JlYW0lMjBzdW5kYWV8ZW58MHx8MHx8fDA%3D" alt="ice cream Sundae" />
+    <h4>Ice Cream Sundae</h4>
+    <p>Vanilla & chocolate ice cream with toppings.</p>
+    <div class="tags"><span style="color:green;">🟢 Veg</span></div>
+    <span>₹160</span>
+  </div>
+  <div class="menu-item mains" onclick="showModal('Pasta Alfredo', 'Creamy Alfredo pasta with mushrooms and cheese.', '₹260')">
+    <img src="https://media.istockphoto.com/id/1938230376/photo/creamy-ricotta-lemon-and-spinach-spaghetti.jpg?s=1024x1024&w=is&k=20&c=fdIpT5BDqqOJNFQfeSBbiwmLZFQpWb3xeFhJi9KrW0I=" alt="pasta alfrado" />
+    <h4>Pasta Alfredo</h4>
+    <p>Creamy Alfredo pasta with mushrooms and cheese.</p>
+    <div class="tags"><span style="color:green;">🟢 Veg</span></div>
+    <span>₹260</span>
+  </div>
+
+  <!-- More Menu Items -->
+
+<!-- Add these two new items right below the previous ones -->
+
+<!-- New Starter: Veg Pakora -->
+<div class="menu-item starters" onclick="showModal('Veg Pakora', 'Assorted veggies coated in gram flour and fried until crispy.', '₹150')">
+    <img src="https://media.istockphoto.com/id/2198183973/photo/mixed-pakodas-with-grilled-chicken-skewers.jpg?s=1024x1024&w=is&k=20&c=miuQGT_Gj2JIg9qA_5G-IRpvcUcCfsR5YXkz3RSjFkg=" alt="Veg Pakora" />
+    <h4>Veg Pakora</h4>
+    <p>Assorted veggies coated in gram flour and fried until crispy.</p>
+    <div class="tags"><span style="color:green;">🟢 Veg</span></div>
+    
+    <span>₹150</span>
+    
+  </div>
+  
+  <!-- New Dessert: Chocolate Lava Cake -->
+  <div class="menu-item desserts" onclick="showModal('Chocolate Lava Cake', 'Warm chocolate cake with a gooey molten center.', '₹180')">
+    <img src="https://images.unsplash.com/photo-1652561781059-58d5d9ffcb4d?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Chocolate Lava Cake" />
+    <h4>Chocolate Lava Cake</h4>
+    <p>Warm chocolate cake with a gooey molten center.</p>
+    <div class="tags"><span style="color:green;">🟢 Veg</span></div>
+   
+    <span>₹180</span>
+   
+  </div>
+  
+  <!-- End of New Menu Items -->
+  
+</div>
+
+
+  
+  <!-- NEW MENU ITEMS END -->
+
+  <!-- Modal -->
+  <div id="menuModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <span id="modalPrice" style="color:#e67e22; font-weight:bold;"></span>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <h3>🍽️ FoodieHub</h3>
+            <p>Your go-to place for delicious meals and great ambiance.</p>
+        </div>
+        <div class="footer-middle">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reservation">Reservation</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <h4 id="contact-section">Contact Us</h4>
+            <ul>
+                <li>Phone: +1 (123) 456-7890</li>
+                <li>Email: info@restaurant.com</li>
+                <li>Address: 123 Foodie Street, Foodtown</li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 FoodieHub. All rights reserved | By Akash Reddy</p>
+    </div>
+</footer>
+
+
+  <script>
+    function filterMenu(category) {
+      const items = document.querySelectorAll('.menu-item');
+      items.forEach(item => {
+        if (category === 'all') {
+          item.style.display = 'block';
+        } else {
+          item.style.display = item.classList.contains(category) ? 'block' : 'none';
+        }
+      });
+    }
+
+    function showModal(title, desc, price) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDesc').innerText = desc;
+      document.getElementById('modalPrice').innerText = price;
+      document.getElementById('menuModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('menuModal').style.display = 'none';
+    }
+
+    // Animate heading underline
+    const heading = document.querySelector('.section-title');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          heading.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(heading);
+  </script>
+
+</body>
+</html>
