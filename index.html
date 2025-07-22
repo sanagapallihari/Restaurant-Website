@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieHub | By Akash Reddy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/Screenshot 2025-04-23 144405.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: "Poppins", sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        html {
+  scroll-behavior: smooth;
+}
+        /* Background Video */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            animation: fadeIn 2s ease-in-out;
+            font-family: "Cedarville Cursive", cursive;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out 1s forwards;
+            font-family: "Cedarville Cursive", cursive;
+        }
+
+
+
+        .cta-button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #ff7f50;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Navigation Menu */
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links li a:hover {
+  color: #f39c12;
+}
+
+.nav-links li a::after {
+  content: '';
+  height: 2px;
+  width: 0%;
+  background: #f39c12;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive ness*/
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe') no-repeat center center/cover;
+    color: white;
+  }
+  .nav-links li a{
+    color: white;
+  }
+    body.light-mode .nav-links li a {
+  color: #fff !important;
+}
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+.footer{
+    display: flex;
+}
+}
+
+
+        /* Scroll Down Arrow */
+        .scroll-down {
+            margin-top: 50px;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-50px);
+            }
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .cta-button {
+                font-size: 1rem;
+            }
+        }
+        /* About Section Styling */
+.about-section {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe') no-repeat center center/cover;
+    color: #fff;
+    padding: 100px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeUp 2s ease-in-out;
+}
+
+.about-content {
+    max-width: 800px;
+}
+
+.about-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ff7f50;
+    animation: slideInLeft 1.5s ease;
+}
+
+.about-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    animation: fadeIn 2s ease-in-out 1s forwards;
+    opacity: 0;
+}
+
+/* Custom Animations */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Featured Dishes Section */
+.featured-section {
+    background-color: #fff;
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    
+    margin-bottom: 50px;
+    animation: slideInDown 1.5s ease;
+}
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  color: #ff7f50;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: #ffce63;
+  transition: width 0.5s ease;
+}
+
+.section-title.animate::after {
+  width: 60%;
+}
+
+
+
+
+.dishes-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.dish-card {
+    background-color: #fdfdfd;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.dish-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.dish-card h3 {
+    font-size: 1.4rem;
+    margin: 15px 10px 10px;
+    color: #ff7f50;
+}
+
+.dish-card p {
+    font-size: 1rem;
+    margin: 0 10px 20px;
+    color: #666;
+}
+
+.dish-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation Keyframes */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Reservation CTA Section */
+.reservation-section {
+    color: #ff7f50;
+    padding: 100px 20px;
+    text-align: center;
+    animation: fadeInReservation 2s ease-in-out;
+}
+.reservation-section {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe') no-repeat center center/cover;
+}
+
+.reservation-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    animation: slideUp 1.2s ease;
+    color: #ff7f50;
+}
+
+.reservation-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in-out 0.5s forwards;
+    opacity: 0;
+}
+
+.reserve-btn {
+    display: inline-block;
+    background-color: #fff;
+    color: #ff7f50;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.reserve-btn:hover {
+    background-color: #222;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeInReservation {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Testimonials Section */
+.testimonials-section {
+    background-color: #f9f9f9;
+    padding: 100px 20px;
+    text-align: center;
+    animation: fadeInTestimonials 1.5s ease-in-out;
+}
+
+.testimonials-title {
+    font-size: 2.5rem;
+    color: #ff7f50;
+    margin-bottom: 50px;
+    animation: slideInDown 1s ease;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border: 3px solid #ff6b81;
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.testimonial-card h4 {
+    font-size: 1.1rem;
+    color: #ff7f50;
+
+}
+
+/* Animation Keyframes */
+@keyframes fadeInTestimonials {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Counters Section with Background Image */
+.counters-section {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe') no-repeat center center/cover;
+    padding: 100px 20px;
+    text-align: center;
+    color: #ff7f50;
+
+    background-attachment: fixed;
+}
+
+.counters-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.counter-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    width: 200px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+}
+
+.counter-box:hover {
+    transform: translateY(-10px);
+}
+
+.counter-box h3 {
+    font-size: 3rem;
+    color: #ff7f50;
+
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.counter-box p {
+    font-size: 1.1rem;
+    color: #ff7f50;
+
+}
+/* Gallery Section */
+.gallery-section {
+    padding: 100px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.gallery-title {
+    font-size: 2.5rem;
+    color: #ff7f50;
+
+    margin-bottom: 40px;
+    animation: slideInDown 1s ease;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    animation: fadeInUp 1.5s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Animations (if not already added) */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Opening Hours & Location Section */
+.hours-location-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover no-repeat;
+    padding: 100px 20px;
+    text-align: center;
+    color: #ff7f50;
+
+    background-attachment: fixed;
+}
+
+
+.hours-location-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.hours-box,
+.location-box {
+    /* background-color: #fff; */
+    backdrop-filter: blur(5px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    flex: 1 1 400px;
+    animation: fadeInUp 1.5s ease;
+}
+
+.hours-box h2,
+.location-box h2 {
+    font-size: 2rem;
+    color: #ff7f50;
+
+    margin-bottom: 20px;
+}
+
+.hours-box ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.hours-box li {
+    margin: 10px 0;
+}
+
+.location-box p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Newsletter Signup Section */
+.newsletter-section {
+    background-color: whitesmoke;
+    padding: 80px 20px;
+    text-align: center;
+    color: #ff7f50;
+
+}
+
+.newsletter-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.newsletter-container p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #ff7f50;
+
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.newsletter-form input{
+    color: #ff7f50;
+    
+}
+
+.newsletter-form input:focus {
+    border: 2px solid #ff6b81;
+    background-color: whitesmoke;
+    color: #ff7f50;
+
+}
+
+.newsletter-form button {
+    padding: 15px 30px;
+    background-color: #ff7f50;
+
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #ec3e59;
+    color: #fff;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Floating Chat Button */
+.chat-button-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+}
+
+.chat-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366; /* WhatsApp Green */
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: Arial, sans-serif;
+}
+
+.chat-button i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.chat-button:hover {
+    background-color: #128C7E; /* Darker WhatsApp Green */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Optional: Add smooth animation to the button */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.chat-button {
+    animation: bounceIn 0.7s ease-out;
+}
+/* Footer Section */
+.footer {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe') no-repeat center center/cover;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+    width: 30%;
+}
+
+.footer-left h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.footer-left p {
+    font-size: 1rem;
+    color: #bbb;
+}
+
+.footer-middle h4,
+.footer-right h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #ffce63;
+}
+
+.footer-middle ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-middle ul li,
+.footer-right ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a,
+.footer-right ul li a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.footer-middle ul li a:hover,
+.footer-right ul li a:hover {
+    color: #ffce63;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #ffce63;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+/* 🌓 Toggle Style */
+.theme-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+/* 🌞 Light Theme (default) */
+body.light-mode {
+  background-color: #fff;
+  color: #111;
+}
+body.light-mode .navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #111;
+}
+body.light-mode .nav-links li a {
+  color: #111;
+}
+body.light-mode .nav-links li a::after {
+  background: #f39c12;
+}
+body.light-mode .hamburger span {
+  background: #111;
+}
+
+/* 🌚 Dark Theme */
+body.dark-mode {
+  background-color: #111;
+  color: #fff;
+}
+body.dark-mode .navbar {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+body.dark-mode .nav-links li a {
+  color: #fff;
+}
+body.dark-mode .nav-links li a::after {
+  background: #f39c12;
+}
+body.dark-mode .hamburger span {
+  background: #fff;
+}
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin: 20px 0;
+  }
+}
+.glow-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(270deg, #f39c12, #ff6f61, #f39c12);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorFlow 5s ease infinite;
+}
+
+@keyframes colorFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.tubelight-text {
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  animation: flickerOn 4s linear forwards;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+}
+
+/* Flicker keyframes */
+@keyframes flickerOn {
+  0% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  10% {
+    opacity: 0.5;
+    text-shadow: 0 0 2px #fff;
+  }
+  20% {
+    opacity: 0.2;
+    text-shadow: 0 0 4px #fff;
+  }
+  30% {
+    opacity: 0.6;
+    text-shadow: 0 0 6px #ff4b2b, 0 0 10px #ff4b2b;
+  }
+  40% {
+    opacity: 0.4;
+    text-shadow: 0 0 4px #ff4b2b;
+  }
+  50% {
+    opacity: 0.9;
+    text-shadow: 0 0 8px #ff4b2b, 0 0 12px #ff4b2b;
+  }
+  60% {
+    opacity: 0.6;
+    text-shadow: 0 0 6px #ff4b2b;
+  }
+  70% {
+    opacity: 0.95;
+    text-shadow: 0 0 10px #ff4b2b, 0 0 16px #ff4b2b;
+  }
+  80% {
+    opacity: 0.85;
+    text-shadow: 0 0 12px #ff4b2b;
+  }
+  90% {
+    opacity: 1;
+    text-shadow: 0 0 16px #ff4b2b, 0 0 24px #ff4b2b;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 20px #ff4b2b, 0 0 30px #ff4b2b;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop class="background-video">
+        <source src="./assets/852122-hd_1920_1080_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div  class="navbar-brand glow-text">🍽️ FoodieHub</div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about-section">About Us</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="#sig">Signatures</a></li>
+          <li><a href="#contact-section">Contact</a></li>
+          <!-- 🌓 Dark/Light Toggle Switch -->
+<div class="theme-toggle" id="themeToggle" title="Toggle Theme">
+    🌞
+  </div>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="Home">
+        <div>
+            <h1 class="tubelight-text">Welcome to the dining place</h1>
+            <p>Experience the finest dining experience with an amazing ambiance.</p>
+            <button class="cta-button" href="#booktable">Make a Reservation</button>
+            <div class="scroll-down">↓</div>
+        </div>
+    </section>
+    <section class="about-section " id="about-section"  >
+        <div class="about-content">
+            <h2 class="section-title">About Us</h2>
+            <p>Welcome to <strong>Flavorscape</strong> – a place where taste meets tradition and every meal tells a story. Since 1985, we've been serving up culinary magic with locally sourced ingredients and global inspirations.</p>
+            <p>Our chefs craft each dish with passion, our staff serve with heart, and our ambiance speaks of comfort and class. Whether it’s a cozy dinner, a lively brunch, or a celebration – you're in the right place.</p>
+        </div>
+    </section>
+    <!-- Featured Dishes Section -->
+<section class="featured-section">
+    <h2 class="section-title" id="sig">Our Signature Dishes</h2>
+    <div class="dishes-container">
+        <div class="dish-card">
+            <img src="https://images.unsplash.com/photo-1694717459401-bf23c6f00980?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dish 1">
+            <h3>Spicy Grilled Chicken</h3>
+            <p>Perfectly charred, smoky, and infused with our secret blend of spices.</p>
+        </div>
+        <div class="dish-card">
+            <img src="https://images.unsplash.com/photo-1727005217349-66276af3aa7d?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dish 2">
+            <h3>Classic Pasta Alfredo</h3>
+            <p>Creamy, cheesy, and heartwarming – made with love and garlic.</p>
+        </div>
+        <div class="dish-card">
+            <img src="https://images.unsplash.com/photo-1638518963806-4d27451f3fa2?q=80&w=1444&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dish 3">
+            <h3>Chocolate Lava Cake</h3>
+            <p>A gooey delight bursting with molten chocolate and love.</p>
+        </div>
+    </div>
+</section>
+<!-- Reservation Call-To-Action Section -->
+<section class="reservation-section">
+    <div class="reservation-content">
+        <h2 class="section-title">Ready to Dine With Us?</h2>
+        <p>Reserve your table now and let us serve you something unforgettable!</p>
+        <a href="#" class="reserve-btn" id="booktable">Book a Table</a>
+    </div>
+</section>
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <h2 class="testimonials-title animate" >What Our Customers Say</h2>
+    <div class="testimonials-container">
+        <div class="testimonial-card">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Customer 1">
+            <p>"Absolutely the best dining experience I've had this year. The pasta was heavenly!"</p>
+            <h4>— Priya K.</h4>
+        </div>
+        <div class="testimonial-card">
+            <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Customer 2">
+            <p>"A cozy place with top-notch service. The lava cake blew my mind!"</p>
+            <h4>— Rahul M.</h4>
+        </div>
+        <div class="testimonial-card">
+            <img src="https://randomuser.me/api/portraits/women/48.jpg" alt="Customer 3">
+            <p>"Friendly staff, flavorful food, and a warm atmosphere. Highly recommended!"</p>
+            <h4>— Anjali S.</h4>
+        </div>
+    </div>
+</section>
+<!-- Counters Section -->
+<section class="counters-section">
+    <div class="counters-wrapper">
+      <div class="counter-box">
+        <h3 class="counter" data-target="10000">0</h3>
+        <p >Happy Customers</p>
+      </div>
+      <div class="counter-box">
+        <h3 class="counter" data-target="25">0</h3>
+        <p>Years of Excellence</p>
+      </div>
+      <div class="counter-box">
+        <h3 class="counter" data-target="500">0</h3>
+        <p>Signature Dishes</p>
+      </div>
+    </div>
+  </section>
+  <!-- Gallery Section -->
+<section class="gallery-section">
+    <h2 class="gallery-title">Follow Us On Instagram</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://plus.unsplash.com/premium_photo-1670263779633-5309cae32f13?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery 1">
+      </div>
+      <div class="gallery-item">
+        <img src="https://plus.unsplash.com/premium_photo-1661434796182-a411d8782d68?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery 2">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1620641606872-f9641b65adab?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery 3">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1633983054728-04a4401342d1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery 4">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1677030002262-ea9384181dff?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery 5">
+      </div>
+      <div class="gallery-item">
+        <img src="https://plus.unsplash.com/premium_photo-1683619761492-639240d29bb5?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery 6">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1662222516994-d78101779dc1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery 7">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1701579231349-d7459c40919d?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery 8">
+      </div>
+    </div>
+  </section>
+  <!-- Opening Hours & Location Section -->
+<section class="hours-location-section">
+    <div class="hours-location-container">
+      <div class="hours-box">
+        <h2>Opening Hours</h2>
+        <ul>
+          <li><strong>Mon - Fri:</strong> 11:00 AM – 10:00 PM</li>
+          <li><strong>Saturday:</strong> 12:00 PM – 11:00 PM</li>
+          <li><strong>Sunday:</strong> 12:00 PM – 9:00 PM</li>
+        </ul>
+      </div>
+      <div class="location-box">
+        <h2>Visit Us</h2>
+        <p>123 Spice Street, Foodie Town, India</p>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019240406801!2d144.95373521531837!3d-37.81627927975153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f1f1f1%3A0x123456789abcde!2sYour+Restaurant!5e0!3m2!1sen!2sin!4v1616161616161" 
+          width="100%" 
+          height="200" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+  <!-- Newsletter Signup Section -->
+<section class="newsletter-section" id="contact-section">
+    <div class="newsletter-container">
+        <h2 class="animate">Stay Updated!</h2>
+        <p>Sign up for our newsletter and never miss a special offer or new dish.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+</section>
+<!-- Floating Chat Button -->
+<div class="chat-button-container">
+    <a href="https://wa.me/+916301878730" target="_blank" class="chat-button">
+        <i class="fab fa-whatsapp"></i>Whatsapp Us
+    </a>
+</div>
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <h3>🍽️ FoodieHub</h3>
+            <p>Your go-to place for delicious meals and great ambiance.</p>
+        </div>
+        <div class="footer-middle">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reservation">Reservation</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <h4 id="contact-section">Contact Us</h4>
+            <ul>
+                <li>Phone: +1 (123) 456-7890</li>
+                <li>Email: info@restaurant.com</li>
+                <li>Address: 123 Foodie Street, Foodtown</li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 FoodieHub. All rights reserved | By Akash Reddy</p>
+    </div>
+</footer>
+
+
+
+
+
+  <script>
+    const counters = document.querySelectorAll('.counter');
+    const speed = 100; // Smaller is faster
+  
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+  
+        const increment = target / speed;
+  
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target;
+        }
+      };
+  
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          updateCount();
+          observer.unobserve(counter);
+        }
+      }, { threshold: 1 });
+  
+      observer.observe(counter);
+    });
+    const sectionTitles = document.querySelectorAll('.section-title');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, {
+    threshold: 0.5 // Trigger when 50% visible
+  });
+
+  sectionTitles.forEach(title => observer.observe(title));
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.body;
+
+  // Set initial mode
+  if (!localStorage.getItem('theme')) {
+    localStorage.setItem('theme', 'light');
+  }
+  body.classList.add(localStorage.getItem('theme') + '-mode');
+  themeToggle.innerText = localStorage.getItem('theme') === 'light' ? '🌞' : '🌙';
+
+  // Toggle Mode
+  themeToggle.addEventListener('click', () => {
+    const isLight = body.classList.contains('light-mode');
+    body.classList.toggle('light-mode', !isLight);
+    body.classList.toggle('dark-mode', isLight);
+    themeToggle.innerText = isLight ? '🌙' : '🌞';
+    localStorage.setItem('theme', isLight ? 'dark' : 'light');
+  });
+
+
+  </script>
+ 
+</body>
+</html>
